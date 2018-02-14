@@ -1,0 +1,17 @@
+from datetime import date
+counts = {}
+correct_year = {}
+for year in range(2018, 2028):
+     counts[year] = 0
+     correct_year[year] = []
+for month in range(1, 13):
+      test = date(year, month, 8)
+      if test.weekday() == 0:  
+          # 0=Mon, 1=Tue
+        counts[year] += 1
+        correct_year[year].append(test.strftime("%b"))
+        
+        #print k, correct_year[k]
+for i in sorted(counts.keys()):
+ if counts[i] >= 0:
+     print i, correct_year[i]

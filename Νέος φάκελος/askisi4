@@ -1,0 +1,19 @@
+#make a funtion for small integers
+def smallIntToRoman(int):
+    rlist = romanList = [(1000, "M"),(900, "CM"),(500, "D"),(400, "CD"),(100, "C"),(90, "XC"),(50, "L"),(40, "XL"),(10, "X"),(9, "IX"),(5, "V"),(4, "IV"),(1, "I")]
+    result = ""
+    for wholeNumber in rlist:
+            while int >= wholeNumber[0]:
+                    int -= wholeNumber[0]
+                    result += wholeNumber[1]
+    return result
+#make a function for big integers 
+def bigIntToRoman(int):
+    thousands, rest = divmod(int, 1000)
+    return "({}){}".format(smallIntToRoman(thousands), smallIntToRoman(rest))
+
+def intToRoman(int = int(input('Enter an integer'))):
+    if int >= 4000:
+        return bigIntToRoman(int)
+    else:
+        return smallIntToRoman(int)

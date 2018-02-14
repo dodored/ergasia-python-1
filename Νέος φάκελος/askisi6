@@ -1,0 +1,6 @@
+import calendar
+#add the year you want 
+year = int(input("Input the year : "))
+#add the month you want 
+month = int(input("Input the month : "))
+print(calendar.month(year, month))
